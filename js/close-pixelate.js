@@ -3,11 +3,10 @@
 (function (window, undefined) {
   'use strict';
 
-  // util vars
   var TWO_PI = Math.PI * 2
   var QUARTER_PI = Math.PI * 0.25
 
-  // utility functions
+  
   function isArray(obj) {
     return Object.prototype.toString.call(obj) === "[object Array]"
   }
@@ -30,10 +29,10 @@
 
   function ClosePixelation(img, options) {
     this.img = img
-    // creat canvas
+    // cтворює Canvas
     var canvas = this.canvas = document.createElement('canvas')
     this.ctx = canvas.getContext('2d')
-    // copy attributes from img to canvas
+    // копіює атрибути з img в Canvas
     canvas.className = img.className
     canvas.id = img.id
 
@@ -46,12 +45,12 @@
 
   ClosePixelation.prototype.render = function (options) {
     this.options = options
-    // Задання розмірв
+    // Задання розмірів
     var w = this.width = this.canvas.width = this.img.width
     var h = this.height = this.canvas.height = this.img.height
     // Рисує зображення на Canvas
     this.ctx.drawImage(this.img, 0, 0)
-    // get imageData
+    // отримує дані зображення
 
     try {
       this.imgData = this.ctx.getImageData(0, 0, w, h).data
